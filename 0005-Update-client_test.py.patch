@@ -1,0 +1,37 @@
+From 3b7b0dc302e50037ae84b4d3eef71e63eb081dfe Mon Sep 17 00:00:00 2001
+From: Olutunmibi Iseoluwa Olatunde
+ <125552420+Olatunde16@users.noreply.github.com>
+Date: Thu, 21 Mar 2024 14:41:09 +0100
+Subject: [PATCH 5/5] Update client_test.py
+
+---
+ client_test.py | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/client_test.py b/client_test.py
+index 7decf47..0cdacc5 100644
+--- a/client_test.py
++++ b/client_test.py
+@@ -23,7 +23,18 @@ class ClientTest(unittest.TestCase):
+ 
+ 
+   """ ------------ Add more unit tests ------------ """
+-  def test_getRatio_calculatePrice(self):
++  def test_getRatio_when_price_b_not_zero(self):
++    """ Test when price_b is not zero """
++    price_a = 20
++    price_b = 10
++    expected_ratio = 2
++    self.assertEqual(getRatio(price_a, price_b), expected_ratio)
++    
++  def test_getRatio_when_price_b_zero(self):
++    """ Test when price_b is zero """
++    price_a = 10
++    price_b = 0
++    self.assertIsNone(getRatio(price_a, price_b))
+ 
+ 
+ if __name__ == '__main__':
+-- 
+2.25.1
+
